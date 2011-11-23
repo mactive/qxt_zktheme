@@ -16,7 +16,10 @@ get_header(); ?>
 
 		<div id="primary">
 			<div id="content" role="main">
-
+				<h1><?php print_r($post); ?></h1>
+				<?php $output = wp_list_pages('echo=0&child_of=2&depth=1&title_li=<h2>Top Level Pages </h2>' );
+					echo $output;
+				 ?>
 				<?php the_post(); ?>
 				
 				<?php get_template_part( 'content', 'page' ); ?>
@@ -40,6 +43,7 @@ get_header(); ?>
 					}
 				?>
 				</ul>
+			
 
 
 			</div><!-- #content -->
