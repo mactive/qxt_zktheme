@@ -85,10 +85,11 @@ body {
 	float: left;
 	margin: 0 -26.4% 0 0;
 	width: 100%;
+	background:#eee;
 }
 #content {
-	margin: 0 34% 0 7.6%;
-	width: 58.4%;
+	margin: 10px;
+	width: 960px;
 }
 #secondary {
 	float: right;
@@ -102,7 +103,7 @@ body {
 }
 .singular #content,
 .left-sidebar.singular #content {
-	margin: 0 7.6%;
+	margin: 10px;
 	position: relative;
 	width: auto;
 }

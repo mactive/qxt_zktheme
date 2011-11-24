@@ -17,13 +17,8 @@ get_header(); ?>
 		<div id="primary">
 			<div id="content" role="main">
 
-				
-				<?php the_post(); ?>
-				
-				<?php get_template_part( 'content', 'page' ); ?>
-				
 				<!-- # page子目录 -->
-				<ul>
+				<ul class="tabs">
 				<?php
 					$page_id = $post->ID;
 					if ($post->post_parent) {
@@ -33,20 +28,39 @@ get_header(); ?>
 					$pages = get_pages('child_of='.$page_id.'&sort_column=post_title');
 					foreach($pages as $page)
 					{ ?>
-						<li><a href="<?php echo get_page_link($page->ID) ?>"><?php echo $page->post_title ?></a></li>
-						
-						<!-- #page_content -->
-						<?php
-							$page_data = get_page( $page->ID ); 
-							$content = apply_filters('the_content', $page_data->post_content);
-							echo "*".$content."*";
-						?>
-						
+						<li><a href="<?php echo get_page_link($page->ID) ?>"><?php echo $page->post_title ?></a></li>						
 					<?php
 					}
 				?>
 				</ul>
-			
+				
+				<!-- tab "panes" --><!-- #page_content -->
+				<div class="panes">
+					<?php
+						$page_id = $post->ID;
+						if ($post->post_parent) {
+					    	$page_id = $post->post_parent;
+					  	}
+
+						$pages = get_pages('child_of='.$page_id.'&sort_column=post_title');
+						foreach($pages as $page)
+						{ 
+							$page_data = get_page( $page->ID ); 
+							$content = apply_filters('the_content', $page_data->post_content);
+							echo "<div>".$content."</div>";
+						}
+					?>
+				</div>
+				
+				<script>
+
+				// perform JavaScript after the document is scriptable.
+				$(function() {
+					// setup ul.tabs to work as tabs for each div directly under div.panes
+					$("ul.tabs").tabs("div.panes > div");
+				});
+				</script>
+						
 
 
 			</div><!-- #content -->

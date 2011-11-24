@@ -24,3 +24,8 @@ echo $output;
 	$output = wp_list_pages('echo=0&child_of='.$page.'&depth=1&title_li=<h2>Top Level Pages </h2>' );
 	echo $output;
  ?>
+
+
+	<?php the_post(); ?>
+	
+	<?php get_template_part( 'content', 'page' ); ?>

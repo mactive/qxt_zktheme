@@ -47,6 +47,7 @@
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_url' ); ?>/tabs.css" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
@@ -65,6 +66,11 @@
 	 */
 	wp_head();
 ?>
+<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js"></script> -->
 </head>
 
 <body <?php body_class(); ?>>
